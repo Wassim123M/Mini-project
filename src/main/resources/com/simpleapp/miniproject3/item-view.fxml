@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.simpleapp.miniproject3.ItemController">
+
+    <!-- Top Header -->
+    <top>
+        <HBox alignment="CENTER" style="-fx-background-color: #b71c1c;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label text="Fruit and Vegetable Management"
+                   style="-fx-text-fill: white; -fx-font-size: 32; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <HBox spacing="30" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Left Input Form -->
+            <VBox spacing="15" style="-fx-background-color: #fff5f5; -fx-padding: 25; -fx-border-color: #f44336;
+                                      -fx-border-radius: 10; -fx-background-radius: 10;
+                                      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 5);"
+                  HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" maxWidth="350">
+
+                <Label text="Item Details"
+                       style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #b71c1c;"/>
+
+                <Label text="Name:"/>
+                <TextField fx:id="nameFld" promptText="e.g., Apple"/>
+
+                <Label text="Type:"/>
+                <HBox spacing="10">
+                    <CheckBox fx:id="fruitCheck" text="Fruit" onAction="#onFruitCheck"/>
+                    <CheckBox fx:id="vegCheck" text="Vegetable" onAction="#onVegCheck"/>
+                </HBox>
+
+                <Label text="Weight (kg):"/>
+                <TextField fx:id="weightFld" promptText="e.g., 0.25"/>
+
+                <Label text="Price ($):"/>
+                <TextField fx:id="priceFld" promptText="e.g., 1.50"/>
+
+                <Label text="Date of Purchase:"/>
+                <DatePicker fx:id="dateFld"/>
+
+                <!-- Buttons: Add, Update, Delete -->
+                <HBox spacing="10" alignment="CENTER">
+                    <Button fx:id="addBtn" text="Add" onAction="#addItem"
+                            style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-background-radius: 6;" HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="updateBtn" text="Update" onAction="#updateItem"
+                            style="-fx-background-color: #b71c1c; -fx-text-fill: white; -fx-background-radius: 6;" HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="deleteBtn" text="Delete" onAction="#deleteItem"
+                            style="-fx-background-color: #ff7961; -fx-text-fill: white; -fx-background-radius: 6;" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Back Home Button Centered -->
+                <HBox alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS">
+                    <Button text="Back Home" onAction="#onBackHome"
+                            style="-fx-background-color: red; -fx-text-fill: white;" prefWidth="120"/>
+                </HBox>
+
+
+                <Text fx:id="errorMsg" fill="#d32f2f" style="-fx-font-weight: bold;"/>
+            </VBox>
+
+            <!-- Right Table -->
+            <VBox spacing="15" alignment="CENTER" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <Label text="Inventory List"
+                       style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #b71c1c;"/>
+
+                <TableView fx:id="itemTable" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" text="Name" prefWidth="140"/>
+                        <TableColumn fx:id="typeColumn" text="Type" prefWidth="140"/>
+                        <TableColumn fx:id="weightColumn" text="Weight" prefWidth="140"/>
+                        <TableColumn fx:id="priceColumn" text="Price" prefWidth="140"/>
+                        <TableColumn fx:id="dateColumn" text="Date" prefWidth="140"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

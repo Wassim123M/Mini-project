@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!-- Modern Home Screen for Mini Project 3 -->
+<HBox alignment="CENTER" prefHeight="600.0" prefWidth="900.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.simpleapp.miniproject3.HomeController">
+
+    <children>
+        <!-- ===== Left Red Panel ===== -->
+        <VBox alignment="CENTER" prefHeight="600.0" prefWidth="350.0" spacing="30.0"
+              style="-fx-background-color: #b71c1c;">
+            <children>
+                <Text fill="WHITE" text="Project"
+                      textAlignment="CENTER" wrappingWidth="230">
+                    <font>
+                        <Font name="Arial Bold Italic" size="24.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+
+        <!-- ===== Right Content Area ===== -->
+        <VBox alignment="CENTER" spacing="25.0">
+            <HBox.margin>
+                <Insets left="50.0" right="50.0" />
+            </HBox.margin>
+
+            <children>
+                <Button fx:id="itemsMngBtn"
+                        text="Fruit and Vegetable Management"
+                        onAction="#openItemsMng"
+                        prefWidth="280.0" prefHeight="45.0"
+                        style="-fx-background-color: #b71c1c; -fx-text-fill: white; -fx-background-radius: 10;">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Button>
+
+                <Button fx:id="exitBtn"
+                        text="Exit Application"
+                        onAction="#onExitApp"
+                        prefWidth="280.0" prefHeight="45.0"
+                        style="-fx-background-color: red; -fx-text-fill: white; -fx-background-radius: 10;">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+</HBox>
