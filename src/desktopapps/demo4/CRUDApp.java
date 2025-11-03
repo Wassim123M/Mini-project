@@ -1,0 +1,25 @@
+package desktopapps.demo4;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class CRUDApp extends Application {
+
+    @Override
+    public void start(Stage stage) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/desktopapps/demo4/views/sport-equipment-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650, 500);
+        stage.setTitle("Sport Equipment Management System");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}

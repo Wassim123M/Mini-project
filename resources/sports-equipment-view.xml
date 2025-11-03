@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="desktopapps.demo4.controllers.SportEquipmentController">
+
+    <center>
+        <VBox spacing="10" padding="20">
+            <TableView fx:id="equipmentTable" prefHeight="300" prefWidth="600">
+                <columns>
+                    <TableColumn fx:id="equipmentNameCol" text="Equipment Name" prefWidth="200" />
+                    <TableColumn fx:id="typeCol" text="Type" prefWidth="200" />
+                    <TableColumn fx:id="quantityCol" text="Quantity" prefWidth="200" />
+                </columns>
+            </TableView>
+
+            <HBox spacing="10">
+                <VBox spacing="5">
+                    <Label text="Equipment Name:" />
+                    <TextField fx:id="equipmentNameFld" promptText="Enter equipment name" prefWidth="180"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Type:" />
+                    <TextField fx:id="typeFld" promptText="Enter type" prefWidth="180"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Quantity:" />
+                    <TextField fx:id="quantityFld" promptText="Enter quantity" prefWidth="100"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="addBtn" text="Add" onAction="#addEquipment" prefWidth="100" />
+                <Button fx:id="updateBtn" text="Update" onAction="#updateEquipment" prefWidth="100" />
+                <Button fx:id="deleteBtn" text="Delete" onAction="#deleteEquipment" prefWidth="100" />
+            </HBox>
+
+            <Text fx:id="errorMsg" style="-fx-fill: red;" />
+
+        </VBox>
+    </center>
+
+</BorderPane>
