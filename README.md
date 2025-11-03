@@ -1,2 +1,2 @@
 # Mini-project
-final wear project
+final semester project
