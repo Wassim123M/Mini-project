@@ -8,7 +8,6 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.simpleapp.miniproject3.ItemController">
 
-    <!-- Top Header -->
     <top>
         <HBox alignment="CENTER" style="-fx-background-color: #b71c1c;">
             <padding>
@@ -19,14 +18,12 @@
         </HBox>
     </top>
 
-    <!-- Center Content -->
     <center>
         <HBox spacing="30" alignment="TOP_CENTER">
             <padding>
                 <Insets top="20" right="20" bottom="20" left="20"/>
             </padding>
 
-            <!-- Left Input Form -->
             <VBox spacing="15" style="-fx-background-color: #fff5f5; -fx-padding: 25; -fx-border-color: #f44336;
                                       -fx-border-radius: 10; -fx-background-radius: 10;
                                       -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 5);"
@@ -53,7 +50,6 @@
                 <Label text="Date of Purchase:"/>
                 <DatePicker fx:id="dateFld"/>
 
-                <!-- Buttons: Add, Update, Delete -->
                 <HBox spacing="10" alignment="CENTER">
                     <Button fx:id="addBtn" text="Add" onAction="#addItem"
                             style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-background-radius: 6;" HBox.hgrow="ALWAYS"/>
@@ -63,17 +59,14 @@
                             style="-fx-background-color: #ff7961; -fx-text-fill: white; -fx-background-radius: 6;" HBox.hgrow="ALWAYS"/>
                 </HBox>
 
-                <!-- Back Home Button Centered -->
                 <HBox alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS">
                     <Button text="Back Home" onAction="#onBackHome"
                             style="-fx-background-color: red; -fx-text-fill: white;" prefWidth="120"/>
                 </HBox>
 
-
                 <Text fx:id="errorMsg" fill="#d32f2f" style="-fx-font-weight: bold;"/>
             </VBox>
 
-            <!-- Right Table -->
             <VBox spacing="15" alignment="CENTER" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                 <Label text="Inventory List"
                        style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #b71c1c;"/>
@@ -91,3 +84,4 @@
         </HBox>
     </center>
 </BorderPane>
+
