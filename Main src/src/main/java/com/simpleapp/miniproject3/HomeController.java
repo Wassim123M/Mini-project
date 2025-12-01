@@ -7,34 +7,34 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 public class HomeController {
-    
-    @FXML
-    void openItemsMng(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("item-view.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.setMaximized(true);
-        stage.show();
+
+    public void openItemsMng(ActionEvent event) {
+        openLogin("/com/simpleapp/miniproject3/login-item.fxml", event);
     }
-    
-    @FXML
-    void openSportsEquipment(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sport-equipment-view.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.setMaximized(true);
-        stage.show();
+
+    public void openSportsEquipmentMng(ActionEvent event) {
+        openLogin("/com/simpleapp/miniproject3/login-sport.fxml", event);
     }
-    
+
+    private void openLogin(String fxml, ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //EXIT APPLICATION
     @FXML
-    void onExitApp(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
+    public void onExitApp(ActionEvent event) {
+        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     }
 }
-

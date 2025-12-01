@@ -9,6 +9,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.simpleapp.miniproject3.SportEquipmentController">
 
+    <!-- Top Header -->
     <top>
         <HBox alignment="CENTER" style="-fx-background-color: #1565c0;">
             <padding>
@@ -19,12 +20,14 @@
         </HBox>
     </top>
 
+    <!-- Center Content -->
     <center>
         <HBox spacing="30" alignment="TOP_CENTER">
             <padding>
                 <Insets top="30" right="40" bottom="30" left="40"/>
             </padding>
 
+            <!-- Left Form Panel -->
             <VBox spacing="15" alignment="TOP_CENTER"
                   style="-fx-background-color: #e3f2fd; -fx-padding: 25; -fx-border-color: #1565c0;
                          -fx-border-radius: 10; -fx-background-radius: 10;
@@ -46,6 +49,7 @@
                 <Label text="Price ($):"/>
                 <TextField fx:id="priceFld" promptText="e.g., 49.99"/>
 
+                <!-- Buttons -->
                 <HBox spacing="10" alignment="CENTER">
                     <Button fx:id="addBtn" text="Add" onAction="#addEquipment"
                             style="-fx-background-color: #1976d2; -fx-text-fill: white; -fx-background-radius: 6;"/>
@@ -55,6 +59,7 @@
                             style="-fx-background-color: #64b5f6; -fx-text-fill: white; -fx-background-radius: 6;"/>
                 </HBox>
 
+                <!-- Back Button -->
                 <HBox alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS">
                     <Button text="Back Home" onAction="#onBackHome"
                             style="-fx-background-color: #0d47a1; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;"
@@ -64,6 +69,7 @@
                 <Text fx:id="errorMsg" fill="#d32f2f" style="-fx-font-weight: bold;"/>
             </VBox>
 
+            <!-- Right Table Panel -->
             <VBox spacing="15" alignment="CENTER" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                 <Label text="Equipment Inventory"
                        style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #0d47a1;"/>
@@ -72,14 +78,13 @@
                            style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 8;">
 
                     <columns>
-                        <TableColumn fx:id="equipmentNameCol" text="Equipment Name" prefWidth="160"/>
-                        <TableColumn fx:id="typeCol" text="Type" prefWidth="100"/>
-                        <TableColumn fx:id="quantityCol" text="Quantity" prefWidth="80"/>
-                        <TableColumn fx:id="priceCol" text="Price ($)" prefWidth="100"/>
+                        <TableColumn fx:id="nameColumn" text="Equipment Name" prefWidth="160"/>
+                        <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+                        <TableColumn fx:id="quantityColumn" text="Quantity" prefWidth="80"/>
+                        <TableColumn fx:id="priceColumn" text="Price ($)" prefWidth="100"/>
                     </columns>
                 </TableView>
             </VBox>
         </HBox>
     </center>
 </BorderPane>
-

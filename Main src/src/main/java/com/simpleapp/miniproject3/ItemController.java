@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -42,9 +41,10 @@ public class ItemController {
 
     @FXML
     private Text errorMsg;
+
     private final ObservableList<Item> items = FXCollections.observableArrayList();
     private final ItemStore store = new ItemStore();
-    
+
     @FXML
     public void initialize() {
         nameColumn.setCellValueFactory(data -> data.getValue().nameProperty());
@@ -52,18 +52,19 @@ public class ItemController {
         weightColumn.setCellValueFactory(data -> data.getValue().weightProperty().asObject());
         priceColumn.setCellValueFactory(data -> data.getValue().priceProperty().asObject());
         dateColumn.setCellValueFactory(data -> data.getValue().dateProperty());
-        
         items.addAll(store.getItemsList());
         itemTable.setItems(items);
+
         if (!items.isEmpty()) {
             itemTable.getSelectionModel().selectFirst();
             populateFields(items.get(0));
         }
+
         itemTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
             if (newSel != null) populateFields(newSel);
         });
     }
-    
+
     private void populateFields(Item item) {
         nameFld.setText(item.getName());
         weightFld.setText(String.valueOf(item.getWeight()));
@@ -73,23 +74,25 @@ public class ItemController {
         vegCheck.setSelected("Vegetable".equals(item.getType()));
         errorMsg.setText("");
     }
-    
+
     @FXML
     void onFruitCheck() { if (fruitCheck.isSelected()) vegCheck.setSelected(false); }
-    
+
     @FXML
     void onVegCheck() { if (vegCheck.isSelected()) fruitCheck.setSelected(false); }
-    
+
     @FXML
     void addItem(ActionEvent event) {
         String name = nameFld.getText().trim();
         String type = fruitCheck.isSelected() ? "Fruit" : vegCheck.isSelected() ? "Vegetable" : "";
         LocalDate date = dateFld.getValue();
         double weight, price;
+
         if (name.isEmpty() || type.isEmpty() || date == null) {
             showError("Please fill all fields correctly.");
             return;
         }
+
         try {
             weight = Double.parseDouble(weightFld.getText());
             price = Double.parseDouble(priceFld.getText());
@@ -97,13 +100,14 @@ public class ItemController {
             showError("Weight and Price must be numbers.");
             return;
         }
+
         Item newItem = new Item(name, type, weight, price, date);
         items.add(newItem);
         store.addItem(newItem);
         clearFields();
         itemTable.getSelectionModel().select(newItem);
     }
-    
+
     @FXML
     void updateItem(ActionEvent event) {
         Item selected = itemTable.getSelectionModel().getSelectedItem();
@@ -121,11 +125,12 @@ public class ItemController {
             showError("Weight and Price must be numbers.");
             return;
         }
+
         itemTable.refresh();
         clearFields();
         itemTable.getSelectionModel().select(selected);
     }
-    
+
     @FXML
     void deleteItem(ActionEvent event) {
         Item selected = itemTable.getSelectionModel().getSelectedItem();
@@ -137,7 +142,7 @@ public class ItemController {
             showError("Select an item to delete.");
         }
     }
-    
+
     @FXML
     void onBackHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/simpleapp/miniproject3/home-view.fxml"));
@@ -146,11 +151,11 @@ public class ItemController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-    
+
     private void showError(String message) {
         errorMsg.setText(message);
     }
-    
+
     private void clearFields() {
         nameFld.clear();
         weightFld.clear();
@@ -161,4 +166,3 @@ public class ItemController {
         errorMsg.setText("");
     }
 }
-
